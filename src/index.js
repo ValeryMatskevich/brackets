@@ -5,11 +5,9 @@ module.exports = function check(str, bracketsConfig) {
 
   for (let i = 0; i < str.length; i++) {
     let bracket = str[i]
-    let lastElement = stack[stack.length - 1]
       if (pairKeys.includes(bracket)) {
         stack.push(bracket)
-        console.log(stack)
-        if (stack.length >= 2 && stack[stack.length - 1]  === stack[stack.length - 2] && stack[stack.length - 1]  === pair[stack[stack.length - 2]]) {
+        if (stack.length >= 2 && stack[stack.length - 1] === stack[stack.length - 2] && stack[stack.length - 1] === pair[stack[stack.length - 2]]) {
           stack.pop()
           stack.pop()
         }
@@ -19,7 +17,7 @@ module.exports = function check(str, bracketsConfig) {
           }
 
 
-      if (bracket === pair[lastElement]) {
+      if (bracket === pair[stack[stack.length - 1]]) {
         stack.pop()
       } else {
           return false
